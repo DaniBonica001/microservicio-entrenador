@@ -2,6 +2,7 @@ package co.analisys.trainerservice.API;
 
 import co.analisys.trainerservice.model.Trainer;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,4 +17,7 @@ public interface TrainerAPI {
 
     @GetMapping("/all")
     List<Trainer> getAllTrainers();
+
+    @GetMapping("/{id}")
+    Trainer getTrainerById(@PathVariable Long id);
 }

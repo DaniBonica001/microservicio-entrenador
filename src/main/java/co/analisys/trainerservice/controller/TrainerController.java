@@ -23,4 +23,9 @@ public class TrainerController implements TrainerAPI {
     public List<Trainer> getAllTrainers() {
         return trainerService.getAllTrainers();
     }
+
+    @Override
+    public Trainer getTrainerById(Long id) {
+        return trainerService.getTrainerById(id);
+    }
 }
