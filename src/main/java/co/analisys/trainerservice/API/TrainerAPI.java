@@ -1,10 +1,7 @@
 package co.analisys.trainerservice.API;
 
 import co.analisys.trainerservice.model.Trainer;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,7 +10,7 @@ public interface TrainerAPI {
 
     String BASE_URL = "/trainers";
     @PostMapping
-    Trainer createTrainer(Trainer trainer);
+    Trainer createTrainer(@RequestBody Trainer trainer);
 
     @GetMapping("/all")
     List<Trainer> getAllTrainers();
