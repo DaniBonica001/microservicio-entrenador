@@ -4,6 +4,7 @@ import co.analisys.trainerservice.model.Trainer;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +14,7 @@ public interface TrainerAPI {
 
     String BASE_URL = "/trainers";
     @PostMapping
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Operation(
             summary = "Crear un nuevo entrenador",
             description = "Este endpoint permite crear un nuevo entrenador proporcionando los detalles en el cuerpo de la solicitud."
@@ -25,6 +27,7 @@ public interface TrainerAPI {
     Trainer createTrainer(@RequestBody Trainer trainer);
 
     @GetMapping("/all")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Operation(
             summary = "Obtener todos los entrenadores",
             description = "Este endpoint permite obtener una lista de todos los entrenadores registrados."
@@ -36,6 +39,7 @@ public interface TrainerAPI {
     List<Trainer> getAllTrainers();
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @Operation(
             summary = "Obtener entrenador por ID",
             description = "Este endpoint permite obtener los detalles de un entrenador proporcionando su ID."
